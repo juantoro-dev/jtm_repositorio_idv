@@ -1,0 +1,13 @@
+ipykernel
+pandas
+geopandas
+osmnx
+networkx
+numpy
+psycopg2-binary
+matplotlib
+tqdm
+shapely
+pydruid
+scikit-learn
+python-dotenv
