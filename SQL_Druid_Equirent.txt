@@ -1,0 +1,34 @@
+SELECT
+    DISTINCT
+    "id",
+    LOWER("manufacturer") AS "protocol",
+    "imei" AS "deviceid",
+    "plate" AS "placa",
+
+    "__time" AS "servertime",
+    "created_at" AS "devicetime",
+    "__time" AS "fixtime",
+
+    TRUE AS "valid",
+
+    "latitude",
+    "longitude",
+    "altitude",
+    "speed",
+    "angle" AS "course",
+
+    NULL AS "address",
+    "properties" AS "attributes",
+    0 AS "accuracy",
+    "ip" AS "network",
+    NULL AS "geofenceids"
+
+FROM avl_records_final
+
+WHERE "manufacturer" = 'Teltonika'
+-- esta parque corre para los ultimos 15 días
+  AND "__time" >= TIMESTAMP '2026-02-01 00:00:00'
+  AND "__time" <  TIMESTAMP '2026-02-17 00:00:00'
+  AND "company_id" = 9
+
+ORDER BY "__time" ASC
